@@ -4562,6 +4562,29 @@ Ruling: no boundary change. The veto did its job: it kept a $5 loss off
 the ledger. See the utterance section for the tally and the topical-word
 analogue rule.
 
+**2026-09-26 20:3xZ update (FULL cycle, operator machine; 1
+`wide-spread-veto` row settled this tick + 2 BACKFILLED MrBeast rows that
+RETRO-20260926-1858 graded narratively without the table edit, see
+RETRO-20260926-2030.)**
+
+| Row | est vs mkt | Side | Realizable edge | Result | CF P&L |
+|---|---|---|---|---|---|
+| MrBeast wk1 60-70M (`d842a0332a5a`, backfill) | 0.18 / 0.094 | Yes | +0.045 | No | -5.00 |
+| MrBeast wk1 70-80M (`5badc7031d2c`, backfill) | 0.82 / 0.9045 | No | +0.040 | Yes | -5.00 |
+| Biggest quake Sep25 ≥6.1 (`f7fcd3a05a31`) | 0.97 / 0.36 bid-only | Yes | no ask | Yes | refused |
+
+Net: **-$10.00** (0W/2L, 1 refused). Wide-spread-veto ledger now 23 rows
+/ 20 trades / 11W-9L / -$25.04 / dBrier -0.0444 / held-out -$17.22 (was
+20/18/11W-7L/-$15.04/-0.0330/-$12.22). Side split: no 13/11/5W-6L/-$19.79
+(adds 70-80M); yes 10/9/6W-3L/-$5.25 (adds 60-70M + the refused quake
+row). Check: -19.79 + -5.25 = -25.04.
+
+Ruling: no boundary change. Both MrBeast rows were pre-dated-count
+estimates the 18:58Z rule now routes to market-agrees; the veto kept $10
+off the ledger. The quake row's dBrier (-0.41) is a bid-only-mid artifact
+of a dead book, not skill: the fact was final (reviewed USGS M6.6) and no
+Yes ask existed, so no trade was possible.
+
 **2026-09-23 DEEP REPAIR (documentation-only backfill; no totals
 change).** `core/counterfactual.py reconcile` lists 9 settled
 outside-view-veto rows graded narratively in this section ("named
