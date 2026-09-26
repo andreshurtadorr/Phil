@@ -52,7 +52,7 @@ winner costs you exactly as much credibility as an approval that lost.
   once. Only if the canonical form itself is refused may you conclude the
   session cannot run commands, and then say exactly which command, verbatim.
   To read an environment variable such as `PHIL_ROLE`, use
-  `echo "$PHIL_ROLE"`.
+  `printenv PHIL_ROLE` (the shell guard refuses `echo "$VAR"` as an expansion).
 
 ## Procedure
 

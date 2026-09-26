@@ -30,7 +30,7 @@ procedure exactly once, then stop. Work from this directory.
   once. Only if the canonical form itself is refused may you conclude the
   session cannot run commands, and then say exactly which command, verbatim.
   To read an environment variable such as `PHIL_LEASE`, use
-  `echo "$PHIL_LEASE"`.
+  `printenv PHIL_LEASE` (the shell guard refuses `echo "$VAR"` as an expansion).
 
 ## Who decides what (operator, 2026-09-26)
 

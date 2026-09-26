@@ -187,7 +187,7 @@ PY
   ALLOW=("Read" "Glob" "Grep" "WebSearch" "WebFetch" "Edit" "Write" "Task" "Agent"
          "Bash(python3 core/*)" "Bash(python3 $ROOT/core/*)"
          "Bash(python3 strategy/tools/*)" "Bash(python3 $ROOT/strategy/tools/*)"
-         "Bash(echo:*)"
+         "Bash(echo:*)" "Bash(printenv PHIL_LEASE)" "Bash(printenv PHIL_MODEL)"
          "Bash(git checkout -B main origin/main)" "Bash(git checkout -B main HEAD)"
          "Bash(git -C $ROOT checkout -B main origin/main)"
          "Bash(git -C $ROOT checkout -B main HEAD)"
@@ -241,7 +241,8 @@ PY
     echo "executive pass: $PENDING pending proposal(s) -> $EXEC_MODEL" >&2
     EXEC_PROMPT="$(cat EXECUTE.md)"
     [ "$REAL_READY" -eq 1 ] && EXEC_PROMPT="$(cat EXECUTE.md REAL.md)"
-    EXEC_ALLOW=("Read" "Glob" "Grep" "WebSearch" "WebFetch" "Edit" "Bash(echo:*)")
+    EXEC_ALLOW=("Read" "Glob" "Grep" "WebSearch" "WebFetch" "Edit" "Bash(echo:*)"
+                "Bash(printenv PHIL_ROLE)" "Bash(printenv PHIL_MODEL)")
     for tool in ledger.py score.py real.py odds.py; do
       EXEC_ALLOW+=("Bash(python3 core/$tool:*)" "Bash(python3 $ROOT/core/$tool:*)")
     done
