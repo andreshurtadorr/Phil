@@ -25,6 +25,13 @@ if [ -z "${PEARL_CONNECT_STORE:-}" ]; then
   echo "NOTE: PEARL_CONNECT_STORE is unset — this loop runs without the Pearl Connect tools (no mech second opinions, no real twins)" >&2
 fi
 
+# Which Claude Code binary runs the sessions. Opus 5.5 / Fable 5.1 need
+# Claude Code >= 2.1.280 (the API refuses older clients with
+# claude_code_version_too_old). Override when the first `claude` on PATH is
+# a stale install: CLAUDE_BIN=$HOME/.local/bin/claude ./loop.sh ...
+CLAUDE_BIN="${CLAUDE_BIN:-claude}"
+echo "claude: $CLAUDE_BIN ($("$CLAUDE_BIN" --version 2>/dev/null | head -1))" >&2
+
 REAL_MODE=0
 ARGS=()
 for a in "$@"; do
@@ -172,7 +179,7 @@ PY
   # step 9 and its rebase path mandate exactly these commands, and a
   # permission-blocked "checkout -B" strands the cycle's commits on a
   # detached HEAD (2026-08-28).
-  CMD=(claude -p "$PROMPT" --model "$MODEL"
+  CMD=("$CLAUDE_BIN" -p "$PROMPT" --model "$MODEL"
        --allowedTools "Read" "Glob" "Grep" "WebSearch" "WebFetch"
          "Edit" "Write" "Task"
          "Bash(python3 core/*)" "Bash(git add:*)" "Bash(git commit:*)"
@@ -195,7 +202,7 @@ PY
           --mcp-config "$STORE/.mcp.json"
           --disallowedTools "Read($STORE/.mcp.json)")
   fi
-  CMD+=(--permission-mode acceptEdits)
+  CMD+=(--permission-mode acceptEdits --strict-mcp-config)
 
   # PHIL_PUSH_BY_LOOP tells CYCLE.md step 9 to commit but not push — the push
   # happens below, in this shell. GIT_TERMINAL_PROMPT/GIT_ASKPASS make any
@@ -226,7 +233,7 @@ PY
     echo "executive pass: $PENDING pending proposal(s) -> $EXEC_MODEL" >&2
     EXEC_PROMPT="$(cat EXECUTE.md)"
     [ "$REAL_READY" -eq 1 ] && EXEC_PROMPT="$(cat EXECUTE.md REAL.md)"
-    EXEC_CMD=(claude -p "$EXEC_PROMPT" --model "$EXEC_MODEL"
+    EXEC_CMD=("$CLAUDE_BIN" -p "$EXEC_PROMPT" --model "$EXEC_MODEL"
          --allowedTools "Read" "Glob" "Grep" "WebSearch" "WebFetch" "Edit"
            "Bash(python3 core/ledger.py:*)" "Bash(python3 core/score.py:*)"
            "Bash(python3 core/real.py:*)" "Bash(python3 core/odds.py:*)"
@@ -238,7 +245,7 @@ PY
             --mcp-config "$STORE/.mcp.json"
             --disallowedTools "Read($STORE/.mcp.json)")
     fi
-    EXEC_CMD+=(--permission-mode acceptEdits)
+    EXEC_CMD+=(--permission-mode acceptEdits --strict-mcp-config)
     PHIL_PUSH_BY_LOOP=1 PHIL_ROLE=executor PHIL_MODEL="$EXEC_MODEL" \
     CLAUDE_CODE_SUBAGENT_MODEL="$GRUNT_MODEL" CLAUDE_CODE_SUBAGENT_MODEL_FORCE=1 \
     GIT_TERMINAL_PROMPT=0 GIT_ASKPASS=/usr/bin/true GIT_EDITOR=true \
