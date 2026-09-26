@@ -6465,6 +6465,7 @@ rule predicted:
   no gate change; revisit when postcount delta turns ≤ 0 at n ≥ 50.
 - ai-model-release +0.0838 (n=35), weather +0.0495 (n=34), news
   +0.0246 (n=32), market-microstructure +0.0750 (n=9): unchanged in kind.
+- **RETRO-20260926-1858 addition — week1 video-view brackets (youtube-views / social-media-views / video-views):** Before a dated live view count is available, own initial estimates for MrBeast weekly view brackets consistently and substantially lag the market's distribution — the market has been correct and our first-principles estimates have imposed large initial brier penalties (60-70M est=0.59 vs mkt=0.38 →+0.204; 70-80M est=0.40 vs mkt=0.62 →+0.216 in the Sep24-26 round; same pattern in prior GTA VI and MrBeast rounds). **Rule:** for week1 YouTube/social-media view-bracket forecasts recorded *before* a dated live count exists, record skip_reason=market-agrees at the market mid. Only form an independent estimate when a dated live/RYD count is available. Revision process continues as normal once live data arrives.
 
 ## DEEP-2026-09-26: record the mechanical read; unmeasured shades go in the note
 
