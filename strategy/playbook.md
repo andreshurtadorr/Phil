@@ -4585,6 +4585,22 @@ off the ledger. The quake row's dBrier (-0.41) is a bid-only-mid artifact
 of a dead book, not skill: the fact was final (reviewed USGS M6.6) and no
 Yes ask existed, so no trade was possible.
 
+Same backfill, `outside-view-veto` side (`core/counterfactual.py
+reconcile` section B, also missed by RETRO-20260926-1858):
+
+| Row | est vs mkt | Side | Realizable edge | Result | CF P&L |
+|---|---|---|---|---|---|
+| MrBeast wk1 60-70M pre-count (`92a9d80fc3c3`) | 0.59 / 0.375 | Yes | +0.198 | No | -5.00 |
+| MrBeast wk1 70-80M pre-count (`8adb0a184d87`) | 0.40 / 0.61 | No | +0.210 | Yes | -5.00 |
+
+Outside-view-veto ledger now 175 rows / 167 trades / 118 events /
+71W-96L / +$77.41 / dBrier +0.0332 / held-out +$71.52 (was 172/164/115/
+70W-94L/+$86.08/+0.0316/+$80.20; the third new row is Yabloko-seat No
+`56ed434261a5`, +$1.33, already named in prose). Side split: no
+123/115/53W-62L/+$38.21; yes 52/52/18W-34L/+$39.20. Check: 38.21 + 39.20
+= 77.41. These two pre-count rows are the evidence behind the 18:58Z
+week-1 market-agrees rule. The veto blocked $10 of losses.
+
 **2026-09-23 DEEP REPAIR (documentation-only backfill; no totals
 change).** `core/counterfactual.py reconcile` lists 9 settled
 outside-view-veto rows graded narratively in this section ("named
