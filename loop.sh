@@ -179,18 +179,26 @@ PY
   # step 9 and its rebase path mandate exactly these commands, and a
   # permission-blocked "checkout -B" strands the cycle's commits on a
   # detached HEAD (2026-08-28).
-  CMD=("$CLAUDE_BIN" -p "$PROMPT" --model "$MODEL"
-       --allowedTools "Read" "Glob" "Grep" "WebSearch" "WebFetch"
-         "Edit" "Write" "Task"
-         "Bash(python3 core/*)" "Bash(git add:*)" "Bash(git commit:*)"
-         "Bash(git rev-parse:*)" "Bash(git log:*)" "Bash(git diff:*)"
-         "Bash(git status:*)" "Bash(git symbolic-ref:*)"
-         "Bash(git merge-base:*)" "Bash(git rev-list:*)"
-         "Bash(git fetch:*)" "Bash(git checkout -B main origin/main)"
-         "Bash(git checkout -B main HEAD)"
-         "Bash(git rebase --continue)" "Bash(git rebase --abort)"
-         "Bash(git rebase --quit)"
-         "Bash(git pull:*)")
+  # Every rule is listed in its relative form AND its absolute-path form
+  # (python3 $ROOT/core/..., git -C $ROOT ...): the allowlist matches literal
+  # prefixes, and the 2026-09-26 18:04Z cycle died after Opus 5.5 wrote its
+  # commands with absolute paths and read the refusals as "no shell at all".
+  ROOT="$(pwd)"
+  ALLOW=("Read" "Glob" "Grep" "WebSearch" "WebFetch" "Edit" "Write" "Task" "Agent"
+         "Bash(python3 core/*)" "Bash(python3 $ROOT/core/*)"
+         "Bash(python3 strategy/tools/*)" "Bash(python3 $ROOT/strategy/tools/*)"
+         "Bash(echo:*)"
+         "Bash(git checkout -B main origin/main)" "Bash(git checkout -B main HEAD)"
+         "Bash(git -C $ROOT checkout -B main origin/main)"
+         "Bash(git -C $ROOT checkout -B main HEAD)"
+         "Bash(git rebase --continue)" "Bash(git rebase --abort)" "Bash(git rebase --quit)"
+         "Bash(git -C $ROOT rebase --continue)" "Bash(git -C $ROOT rebase --abort)"
+         "Bash(git -C $ROOT rebase --quit)")
+  for verb in add commit rev-parse log diff status symbolic-ref merge-base \
+              rev-list fetch pull show branch "remote get-url" "remote -v"; do
+    ALLOW+=("Bash(git $verb:*)" "Bash(git -C $ROOT $verb:*)")
+  done
+  CMD=("$CLAUDE_BIN" -p "$PROMPT" --model "$MODEL" --allowedTools "${ALLOW[@]}")
   if [ "$PEARL_UP" -eq 1 ]; then
     # wallet_info is read-only; the mech_* tools buy predictions from the
     # Olas mech marketplace (~$0.01 USDC each, paid by the service safe) per
@@ -233,13 +241,17 @@ PY
     echo "executive pass: $PENDING pending proposal(s) -> $EXEC_MODEL" >&2
     EXEC_PROMPT="$(cat EXECUTE.md)"
     [ "$REAL_READY" -eq 1 ] && EXEC_PROMPT="$(cat EXECUTE.md REAL.md)"
+    EXEC_ALLOW=("Read" "Glob" "Grep" "WebSearch" "WebFetch" "Edit" "Bash(echo:*)")
+    for tool in ledger.py score.py real.py odds.py; do
+      EXEC_ALLOW+=("Bash(python3 core/$tool:*)" "Bash(python3 $ROOT/core/$tool:*)")
+    done
+    EXEC_ALLOW+=("Bash(python3 core/forecast.py status)"
+                 "Bash(python3 $ROOT/core/forecast.py status)")
+    for verb in add commit rev-parse log diff status symbolic-ref; do
+      EXEC_ALLOW+=("Bash(git $verb:*)" "Bash(git -C $ROOT $verb:*)")
+    done
     EXEC_CMD=("$CLAUDE_BIN" -p "$EXEC_PROMPT" --model "$EXEC_MODEL"
-         --allowedTools "Read" "Glob" "Grep" "WebSearch" "WebFetch" "Edit"
-           "Bash(python3 core/ledger.py:*)" "Bash(python3 core/score.py:*)"
-           "Bash(python3 core/real.py:*)" "Bash(python3 core/odds.py:*)"
-           "Bash(python3 core/forecast.py status)"
-           "Bash(git add:*)" "Bash(git commit:*)" "Bash(git rev-parse:*)"
-           "Bash(git log:*)" "Bash(git diff:*)" "Bash(git status:*)")
+              --allowedTools "${EXEC_ALLOW[@]}")
     if [ "$PEARL_UP" -eq 1 ]; then
       EXEC_CMD+=("mcp__pearl-connect__wallet_info"
             --mcp-config "$STORE/.mcp.json"

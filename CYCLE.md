@@ -19,6 +19,18 @@ procedure exactly once, then stop. Work from this directory.
   experiment's value.
 - Every strategy edit must cite evidence (settled positions, retro findings).
   No speculative rewrites.
+- **Command hygiene (operator, 2026-09-26).** The shell allowlist matches
+  literal command prefixes. Run every command from the repository root in
+  the exact form this document writes it: `python3 core/<tool>.py ...`,
+  `git <verb> ...`, one command per Bash call. No `cd`, no `env`, no
+  `export`, no `VAR=value` prefixes, no `;`/`&&` chains that mix commands,
+  no absolute paths (`git -C` and `python3 /Users/...` are tolerated but
+  unnecessary). A tool result saying "requires approval" means the command
+  did not match the allowlist: rewrite it in the canonical form and retry
+  once. Only if the canonical form itself is refused may you conclude the
+  session cannot run commands, and then say exactly which command, verbatim.
+  To read an environment variable such as `PHIL_LEASE`, use
+  `echo "$PHIL_LEASE"`.
 
 ## Who decides what (operator, 2026-09-26)
 

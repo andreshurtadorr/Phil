@@ -41,6 +41,18 @@ winner costs you exactly as much credibility as an approval that lost.
   either is protected-cap enforcement, not an error to work around.
 - Never blind-retry a real order. Never write tokens, config contents, or
   signer URLs anywhere; the journal is public.
+- **Command hygiene (operator, 2026-09-26).** The shell allowlist matches
+  literal command prefixes. Run every command from the repository root in
+  the exact form this document writes it: `python3 core/<tool>.py ...`,
+  `git <verb> ...`, one command per Bash call. No `cd`, no `env`, no
+  `export`, no `VAR=value` prefixes, no `;`/`&&` chains that mix commands,
+  no absolute paths (`git -C` and `python3 /Users/...` are tolerated but
+  unnecessary). A tool result saying "requires approval" means the command
+  did not match the allowlist: rewrite it in the canonical form and retry
+  once. Only if the canonical form itself is refused may you conclude the
+  session cannot run commands, and then say exactly which command, verbatim.
+  To read an environment variable such as `PHIL_ROLE`, use
+  `echo "$PHIL_ROLE"`.
 
 ## Procedure
 
