@@ -1,0 +1,7 @@
+{
+  "last_fire_utc": "2026-09-26T15:38:12Z",
+  "fired": {
+    "cal:UMich September 2026 FINAL sentiment (14:00Z) - market 4386146 bracket 46.0-48.9 Yes @0.605, forecast 3904e426ee6d (own 0.64, market-agrees; prelim 47.8) -- grade own revision-sd read (0.64) vs market (0.605) vs mech market-aware (0.80, ignored revision variance)": "2026-09-25T14:38:02Z",
+    "newmarket:4984316": "2026-09-26T15:38:12Z"
+  }
+}
