@@ -3524,3 +3524,23 @@ regexes, subclass auto-tagger.
 gate 1 fails, f4 dBrier +0.0363). 0 bets placed, 3 settled WON (+$4.43),
 4 open. No reverts; one consolidation rule (unmeasured shades) and a
 research-allocation re-rank capping social-media-postcount.
+
+## 2026-09-26 18:2xZ — operator-machine checkout has no origin; PHIL_LEASE unreadable (FULL cycle, operator)
+
+Evidence, this cycle, verbatim:
+- `git remote -v` prints nothing; `git fetch origin main` -> "fatal: 'origin'
+  does not appear to be a git repository". HEAD a9ad0c8 is the operator's
+  "import phil-main" line (b13fe4b/c5e7296/a9ad0c8, all 2026-09-26); the
+  cloud runner's cycles through 16:19Z (1d928dc) are not in this history.
+  Consequences: step 0 sync and the collision guard are blind to the cloud
+  runner, `core/ci.py` returns `unknown`, the runner lease (on origin)
+  cannot work, and this cycle's commit cannot reach origin, so the next
+  cloud cycle will not see it and the two histories diverge.
+- CYCLE.md's canonical `echo "$PHIL_LEASE"` was refused by the shell guard
+  with "Contains simple_expansion" (not the usual "requires approval"), and
+  `printenv PHIL_LEASE` required approval. So the documented way to read
+  the lease variable does not run in this session.
+Ask: add the origin remote to this checkout (or point loop.sh at the
+original clone) before the next operator cycle, and allow a variable-read
+form that the guard accepts (or have loop.sh pass PHIL_LEASE/PHIL_PUSH_BY_LOOP
+in the prompt). PROPOSED (operator).
