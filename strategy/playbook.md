@@ -4601,6 +4601,15 @@ Outside-view-veto ledger now 175 rows / 167 trades / 118 events /
 = 77.41. These two pre-count rows are the evidence behind the 18:58Z
 week-1 market-agrees rule. The veto blocked $10 of losses.
 
+**2026-09-27 20:1xZ documentation-only backfill (no totals change;
+RETRO-20260927-2010).** `reconcile` section B still listed the Yabloko row
+the block above counted in its totals but named only in prose. Entered
+here so section B reads empty:
+
+| Row | est vs mkt | Side | Realizable edge | Result | CF P&L |
+|---|---|---|---|---|---|
+| Yabloko >=1 Duma seat (`56ed434261a5`) | 0.90 / 0.765 | No | +0.110 | No | +1.33 |
+
 **2026-09-23 DEEP REPAIR (documentation-only backfill; no totals
 change).** `core/counterfactual.py reconcile` lists 9 settled
 outside-view-veto rows graded narratively in this section ("named
