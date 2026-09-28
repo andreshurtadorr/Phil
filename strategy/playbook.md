@@ -4667,6 +4667,22 @@ gate; the hand table is the narrative index. An operator proposal to
 make `reconcile` units-aware and to extend its B-check beyond
 outside-view-veto is filed in journal/proposals.md (2026-09-23 pass).
 
+**2026-09-28 20:33Z update (LIGHT tick, operator machine; 2
+`outside-view-veto` forecasts settled, see RETRO-20260928-2033.)**
+Sonnet 5.5 released Sep 28. Both No-side counterfactual bets lost (veto
+correct — kept $10 off the ledger). ai-model-release stays veto class.
+
+| Row | est vs mkt | Side | Realizable edge | Result | CF P&L |
+|---|---|---|---|---|---|
+| Sonnet on-Sep28 (`f7dd0b867d01`) | 0.40 / 0.77 | No | +0.350 | Yes | -5.00 |
+| Sonnet by-Sep28 (`7a14da75f057`) | 0.40 / 0.685 | No | +0.210 | Yes | -5.00 |
+
+Net this batch: **-$10.00** (0W/2L). Mechanical ledger after these rows:
+177 rows / 120 events / 169 trades / 71W-98L / +$67.41 / dBrier +0.0361 /
+held-out +$56.51 (was 175/118/167/71W-96L/+$77.41/+0.0332/+$71.52 before
+these rows). Side split: no 125/93/117/53W-64L/+$28.21 (adds 2 rows);
+yes 52/43/52/18W-34L/+$39.20 (unchanged). Check: 28.21 + 39.20 = 67.41 ✓.
+
 ## Outside-view-veto relaxation fork (pre-registered, DEEP-2026-09-08, per operator note 2026-09-07 ~20:50Z)
 
 The veto on judgment estimates with claimed edge > 0.10 stays. This fork
