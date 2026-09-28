@@ -3098,6 +3098,20 @@ market on decision-weighted Brier. Ruling unchanged: forecast-only
 "indefinitely" stands until a deep retro re-grades against the full
 pre-registered bar, and a reach-only slice never re-opens it.
 
+**2026-09-28 12:1xZ tally (RETRO-20260928-1210; 12th-14th measured
+rows).** Weekly Sep 21-27 rows `efa75442b3c7` (BTC dip $80k, own 0.122 vs
+mid 0.075, CoinGecko 31d), `6f5b7cf4f742` (ETH reach $2,900, 0.3244 vs
+0.315, CoinGecko 31d) and `fd59af69853c` (BTC reach $88k, 0.41 vs 0.285,
+Binance 30d) all LOST. Own was above the market on all three, and the
+market was closer on all three (dB +0.0093 / +0.0060 / +0.0869). The two BTC
+rows come from different vol inputs 13h apart on opposite sides, so they
+are two decisions. Tally: 14 rows, 12 informative decisions, own closer on
+**4 of 12**. Reach split **3 of 5** (the 3/3 streak did not survive its
+first non-rising week), dip split **1 of 7**. Row Brier sum own 0.8844 vs
+market 0.9087 (lead 0.024, down from 0.126). Criterion (b) now needs 8
+straight own-closer decisions (12/20). Ruling unchanged. Any "reach works"
+reading is retired: the rising-tape caveat above was the right one.
+
 Excluded per the sub-boundary taxonomy (DEEP-2026-08-15): Zambia
 (fa185b55a5c3, edge 0.06) and Musk wk 200-219 (7808b6f5a4ef, edge 0.045)
 both settled this tick too, but both carry claimed edges ≤0.10 under a
