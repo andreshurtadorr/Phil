@@ -4683,6 +4683,46 @@ held-out +$56.51 (was 175/118/167/71W-96L/+$77.41/+0.0332/+$71.52 before
 these rows). Side split: no 125/93/117/53W-64L/+$28.21 (adds 2 rows);
 yes 52/43/52/18W-34L/+$39.20 (unchanged). Check: 28.21 + 39.20 = 67.41 ✓.
 
+**2026-09-28 21:55Z update (LIGHT tick, operator machine; 2 `outside-view-veto`
+rows settled on the 10y Treasury hit 5.20% market, see RETRO-20260928-2155.)**
+10y par hit 5.20 in September. Both No-side CF bets would have lost (veto
+correct). econ-rates class adds 2 No-side losses.
+
+| Row | est vs mkt | Side | Realizable edge | Result | CF P&L |
+|---|---|---|---|---|---|
+| 10y hit 5.20% Sep, initial (`fdedb184ad3e`) | 0.28 / 0.06 | No | +0.190 | Yes | -5.00 |
+| 10y hit 5.20% Sep, supersede (`3ed526b57eca`) | 0.47 / 0.26 | No | +0.200 | Yes | -5.00 |
+
+Net this batch: **-$10.00** (0W/2L). Mechanical ledger after these rows:
+179 rows / 121 events / 171 trades / 71W-100L / +$57.41 / dBrier +0.0369 /
+held-out +$46.51 (was 177/120/169/71W-98L/+$67.41/+0.0361/+$56.51 before
+these rows). Side split: no 127/94/119/53W-66L/+$18.21 (adds both rows);
+yes 52/43/52/18W-34L/+$39.20 (unchanged). Check: 18.21 + 39.20 = 57.41 ✓.
+Ruling: both declines correct. Same family as the 30y-5.39 No-side loss
+(`03f07792d701`, RETRO-20260923-2215): self-modeled driftless bootstrap
+underweights gap-day rate moves; market aggregates options vol better.
+
+**2026-09-28 21:55Z update (LIGHT tick, operator machine; 2 `wide-spread-veto`
+rows settled on the 30y Treasury hits 5.50% and 5.55% markets, see
+RETRO-20260928-2155.)** Same Sep 23–28 rates selloff. 30y hit 5.50%: Yes-side
+CF won (+$3.13, veto cost a winner). 30y hit 5.55%: model's No side CF lost
+(−$5.00, veto saved; own 0.31 < mkt 0.51 on Yes, outcome Yes).
+
+| Row | est vs mkt | Side | Realizable edge | Result | CF P&L |
+|---|---|---|---|---|---|
+| 30y hit 5.50% Sep (`99df204b7f85`) | 0.67 / 0.54 | Yes | +0.055 | Yes | +3.13 |
+| 30y hit 5.55% Sep (`84012264b65d`) | 0.31 / 0.51 | No | -0.107 | Yes | -5.00 |
+
+Net this batch: **-$1.87** (1W/1L). Wide-spread-veto ledger now 25 rows /
+23 events / 22 trades / 12W-10L / -$26.91 / dBrier -0.0356 / held-out -$19.09
+(was 23/20/11W-9L/-$25.04/-0.0444/-$17.22). Side split: no 14/12/5W-7L/-$24.79
+(adds 84012264b65d −$5.00); yes 11/10/7W-3L/-$2.12 (adds 99df204b7f85 +$3.13,
+was 10/9/6W-3L/-$5.25). Check: -24.79 + -2.12 = -26.91 ✓.
+Ruling: no boundary change. Net saves for this batch +$11.87 (avoided 3×−$5.00
+from the same selloff, missed 1×+$3.13). Spread on 99df204b7f85 was 0.151 —
+near the boundary; on 84012264b65d 0.611 — clearly wide. Touch family stays
+forecast-only/veto; own self-modeled sd was too tight for this week's move.
+
 ## Outside-view-veto relaxation fork (pre-registered, DEEP-2026-09-08, per operator note 2026-09-07 ~20:50Z)
 
 The veto on judgment estimates with claimed edge > 0.10 stays. This fork
