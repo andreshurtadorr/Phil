@@ -4729,6 +4729,26 @@ held-out +$41.51 (was 179/121/171/71W-100L/+$57.41/+0.0369/+$46.51 before
 this row). Side split: no 128/95/120/53W-67L/+$13.21 (adds this loss −$5);
 yes 52/43/52/18W-34L/+$39.20 (unchanged). Check: 13.21 + 39.20 = 52.41 ✓.
 
+**2026-09-29 16:34Z update (FULL cycle, operator machine; 2 `outside-view-veto`
+JOLTS Aug rows settled, see RETRO-20260929-1634.)** Print 7,079k (7.0-7.1M
+bracket). July was revised +64k inside the same release.
+
+| Row | est vs mkt | Side | Realizable edge | Result | CF P&L |
+|---|---|---|---|---|---|
+| JOLTS Aug <7.0M (`51dfb2b824d2`) | 0.20 / 0.053 | Yes | +0.116 | No | −5.00 |
+| JOLTS Aug 7.3-7.4M (`8e69cf11d1ee`) | 0.13 / 0.1455 | No | −0.078 | No | +0.27 |
+
+Net this batch: **−$4.72** (1W/1L). Mechanical ledger after these rows:
+182 rows / 123 events / 174 trades / 72W-102L / +$47.69 / dBrier +0.0382 /
+held-out +$41.79 (was 180/122/172/71W-101L/+$52.41/+0.0385/+$41.51). Side
+split: no 129/96/121/54W-67L/+$13.49; yes 53/44/53/18W-35L/+$34.20. Check:
+13.49 + 34.20 = 47.69 ✓. Ruling: the veto was correct on the tail row, and
+there is no boundary change. The self-model's body beat the market's high
+lean (market ≥7.3 mass ~0.60; the print was 221k below it). JOLTS anchor
+note: the prior month's first print is not a stable random-walk anchor,
+because revisions land in the same release (+64k here). Without a survey
+consensus, keep JOLTS tails forecast-only.
+
 **2026-09-28 21:55Z update (LIGHT tick, operator machine; 2 `wide-spread-veto`
 rows settled on the 30y Treasury hits 5.50% and 5.55% markets, see
 RETRO-20260928-2155.)** Same Sep 23–28 rates selloff. 30y hit 5.50%: Yes-side
