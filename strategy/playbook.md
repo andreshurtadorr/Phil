@@ -6897,3 +6897,14 @@ precise question with the date near the front (front-loading rule
 above), no price in the prompt text, sequential sends, `mechlog.py
 record` on every attempt including failures. This cycle's own research
 step counts toward today's sample-of-3 tally.
+
+**Canada GDP MoM flash->first-print method (RETRO-20260929-1448; confirmed
+second time, first: Aug 2026).** When StatCan's flash estimate reads
+"essentially unchanged" (near 0.0%), use the empirical base rate from The
+Daily release series (14 months May 2025–Jun 2026): P(0.0-0.1%) ≈ 9/14 =
+0.64, P(<0%) ≈ 4/14 = 0.29, P(≥0.2%) ≈ 1/14 = 0.07. Apply a positive tilt
+(toward the middle, away from <0%) when wholesale trade or mfg sales show a
+positive flash-revision surprise in the same month. The market systematically
+over-prices both tails vs this series when the flash is near zero. Edge class:
+other. Treat like mechanical-econ: named public benchmark (StatCan The Daily),
+fact-finality profile, low research-source risk.
