@@ -4770,6 +4770,28 @@ from the same selloff, missed 1×+$3.13). Spread on 99df204b7f85 was 0.151 —
 near the boundary; on 84012264b65d 0.611 — clearly wide. Touch family stays
 forecast-only/veto; own self-modeled sd was too tight for this week's move.
 
+**2026-09-29 22:22Z update (LIGHT tick, operator machine; 1 `wide-spread-veto`
+forecast settled, see RETRO-20260929-2222.)** 10y Treasury hit 5.25% in Sep
+(settled Sep29). Own 0.46 vs market mid 0.65, raw bootstrap 0.53 was closest
+to truth — n=3 data points (30y 5.39, 10y 5.20, 10y 5.25) all show raw drift
+outperforms demeaned/driftless in Sep's rising-rates episode. Spread 0.43;
+No-side realizable edge −0.02 (no bet even without the spread). Veto saved a
+−$5.00 CF No-bet loss.
+
+| Row | est vs mkt | Side | Realizable edge | Result | CF P&L |
+|---|---|---|---|---|---|
+| 10y hit 5.25% Sep (`a41e6e996b85`) | 0.46 / 0.65 | No | −0.02 | Yes | −5.00 |
+
+Net this batch: **-$5.00** (0W/1L). Wide-spread-veto ledger now 26 rows /
+24 events / 23 trades / 12W-11L / -$31.91 / dBrier -0.0267 / held-out -$24.09
+(was 25/23/22/12W-10L/-$26.91/-0.0356/-$19.09). Side split: no 15/13/5W-8L/-$29.79
+(adds a41e6e996b85 −$5.00); yes 11/10/7W-3L/-$2.12 (unchanged). Check: -29.79 +
+-2.12 = -31.91 ✓.
+Ruling: no boundary change. No-side edge was negative regardless; spread confirmed
+the no-bet. **Regime note (n=3):** in rising-rates episodes, weight raw bootstrap
+over demeaned/driftless for Treasury yield touch — the market's options-vol read
+tracks the regime better than the mean-reverting demeaned model.
+
 ## Outside-view-veto relaxation fork (pre-registered, DEEP-2026-09-08, per operator note 2026-09-07 ~20:50Z)
 
 The veto on judgment estimates with claimed edge > 0.10 stays. This fork
