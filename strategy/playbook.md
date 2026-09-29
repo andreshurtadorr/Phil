@@ -1863,6 +1863,16 @@ move as favorable or adverse.
      residential IP too) — for Metaculus, WebSearch for the venue's pricing
      by name (e.g. "Kalshi Fed rate decision September odds") is still the
      only channel, same pattern as sportsbook odds coverage.
+     **Central-bank futures-vs-PM tally (RETRO-20260929-1245): 0-1.** RBA
+     Sep 2026 No (4ed738b2045b, cross-market, $5 No @0.149) bet that a PM
+     Yes 0.853 on a 2.7k book was ~7pt rich to ASX-futures 78% hike, 13 days
+     out. RBA hiked; LOST -5.00, brier_delta +0.031. Own 0.77 put the mass on
+     the outcome, so it reads as variance, but the thin PM book was the
+     closer price and converged to 0.99 before the statement. n=1, no
+     threshold change; before the next gap under 0.10 against a futures
+     tracker, check which contract month the tracker reads (a meeting late
+     in the month barely moves that month's average) and put the tally in
+     the rationale.
    - **Kalshi has a per-1%-bracket "Above X%" ladder for the unemployment
      rate, series `KXU3-<YY><MON>` (2026-08-06 15:41Z finding, not the same
      series as the payrolls/CPI ladders already validated 2026-08-05
