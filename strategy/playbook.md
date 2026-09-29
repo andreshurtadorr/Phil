@@ -4712,6 +4712,23 @@ Ruling: both declines correct. Same family as the 30y-5.39 No-side loss
 (`03f07792d701`, RETRO-20260923-2215): self-modeled driftless bootstrap
 underweights gap-day rate moves; market aggregates options vol better.
 
+**2026-09-29 15:44Z update (LIGHT tick, operator machine; 1 `outside-view-veto`
+forecast settled, see RETRO-20260929-1544.)** Hormuz Sep 21–27 transit
+count settled 20-24 (Yes). Market's 0.50 on 20-24 was right; own Gaussian
+mean ~26 sd 6.5 (after Cape Dao shade) placed only 0.25 there. No-side CF
+bet would have lost: market had live AIS data PortWatch hadn't published,
+outside-view-veto correctly declined it.
+
+| Row | est vs mkt | Side | Realizable edge | Result | CF P&L |
+|---|---|---|---|---|---|---|
+| Hormuz 20-24 ships (1f385b654894) | 0.25 / 0.50 | No | +0.15 | Yes | −1.00 |
+
+Net this batch: **-$5.00** (0W/1L). Mechanical ledger after this row:
+180 rows / 122 events / 172 trades / 71W-101L / +$52.41 / dBrier +0.0385 /
+held-out +$41.51 (was 179/121/171/71W-100L/+$57.41/+0.0369/+$46.51 before
+this row). Side split: no 128/95/120/53W-67L/+$13.21 (adds this loss −$5);
+yes 52/43/52/18W-34L/+$39.20 (unchanged). Check: 13.21 + 39.20 = 52.41 ✓.
+
 **2026-09-28 21:55Z update (LIGHT tick, operator machine; 2 `wide-spread-veto`
 rows settled on the 30y Treasury hits 5.50% and 5.55% markets, see
 RETRO-20260928-2155.)** Same Sep 23–28 rates selloff. 30y hit 5.50%: Yes-side
