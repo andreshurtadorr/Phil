@@ -3589,3 +3589,10 @@ retrying it is wasted time) instead of burning the tick. Ask (in addition to the
 trust-store repair above): have `core/` HTTP helpers skip retries on
 `ssl.SSLCertVerificationError`, or have loop.sh preflight one HTTPS fetch
 and demote to a LIGHT/log-only tick when it fails.
+
+Update 2026-09-30 21:1xZ (FULL tick, operator machine): still broken (6th
+tick). resolve.py again exceeded 10 minutes on retries (every ledger and forecast
+fetch failed), all 4 scan queries failed, score.py MTM unavailable on all 3 open
+positions, and ci.py unknown. To stop spending FULL ticks on it, I set pacing
+(`strategy/schedule.json`) to LIGHT until 2026-10-01T11:00Z. The trust-store
+repair is still the only fix.
