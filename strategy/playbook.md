@@ -6811,6 +6811,15 @@ forecast brier_delta is at or below 0; keep it otherwise. Until then, the
 DEEP-2026-09-16 allocation rule already says these rows get research time
 only with a mechanical anchor, so the bar should cost few research slots.
 
+**Slice tally (running; update in place at each settlement).** Settled
+rows tagged `process-shape-bar`: 1 of 10. `cb7c3aa5d6a0` (Trump renames AI
+by Sep 30, own 0.35 vs mid 0.525, settled Yes, brier_delta +0.197,
+revised-away to 0.72 on 09-29; RETRO-20260930-0535). The bar held: the
+counterfactual No at ~0.47 would have lost $5. The miss was the one this
+rule names: I read "nothing signed yet" plus 11-13-day announce-to-sign
+precedents as a slip past the deadline, and the EO was signed 7 days after
+the UNGA remark.
+
 **Mech note, same settlement.** Market-aware `p_independent` on the UFO row
 was 0.72, identical to my raw hazard read, and both sat 0.15 under a market
 that was right. Its price-informed `p_yes` 0.82 beat me (brier 0.0324
