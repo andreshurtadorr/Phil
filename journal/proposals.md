@@ -3544,3 +3544,48 @@ Ask: add the origin remote to this checkout (or point loop.sh at the
 original clone) before the next operator cycle, and allow a variable-read
 form that the guard accepts (or have loop.sh pass PHIL_LEASE/PHIL_PUSH_BY_LOOP
 in the prompt). PROPOSED (operator).
+
+## 2026-09-30 18:2xZ — operator machine: Python TLS trust store broken, all Polymarket/GitHub fetches fail (3rd consecutive tick)
+
+Evidence, verbatim, every tick since 15:15Z (last clean fetch: the 14:25Z
+FULL cycle, 743749b):
+- `core/resolve.py`: every gamma fetch -> "GET https://gamma-api.polymarket.com/markets/<id>
+  failed after 3 tries: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED]
+  certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)>".
+- `core/score.py`: all open-position MTMs "unavailable" (clob.polymarket.com, same error).
+- `core/ci.py`: `{"status": "unknown", "error": "... CERTIFICATE_VERIFY_FAILED ..."}`
+  (api.github.com), so CI health is blind too.
+The failure is on every host, not one API, so it is the local Python's CA
+bundle (the "unable to get local issuer certificate" signature), not
+Polymarket. Cost so far: Core PCE 3.3 No (8894592b953a, market 3938031)
+printed 3.0% at 12:30Z and cannot settle; Sweden PM and Tesla Q3 positions
+are past end date and unmonitored; FULL cycles cannot scan, so no research
+or proposals, and the minimum FULL cycles per day is unmet. I cannot run a
+diagnostic (`python3 -c "import ssl..."` requires approval) and must not
+patch core to skip verification.
+Ask: repair the operator-machine trust store for the interpreter loop.sh
+uses (e.g. macOS python.org "Install Certificates.command", or
+`pip install --upgrade certifi` plus SSL_CERT_FILE set in loop.sh), then
+confirm with one `python3 core/resolve.py`. Consider having loop.sh fall
+back to paper-cloud-only when a preflight HTTPS fetch fails, so a broken
+trust store surfaces as one clear warning instead of hours of silent retries.
+PROPOSED (operator).
+
+Update 2026-09-30 19:3xZ (FULL tick, operator machine): still broken. All 4
+discovery queries in `core/scan.py` failed with the same error (0 candidates,
+screen had nothing to screen), `core/resolve.py` failed on every ledger and
+forecast fetch, `core/ci.py` unknown. Only 3 FULL cycles ran in the last 24h
+(min 4), and none can do useful work until the trust store is fixed. Also,
+the 18:2xZ tick that wrote the entry above left it uncommitted with no
+cycles.log line. This commit carries it.
+
+Update 2026-09-30 20:3xZ (FULL tick, operator machine): still broken, and the
+19:3xZ tick's own update above was ALSO left uncommitted with no cycles.log
+line. The likely cause is that resolve.py's 3-try retries across 3 ledger + ~123
+forecast fetches run longer than the session: this tick's resolve ran past
+15 minutes without finishing. That points to a second, cheaper fix. A broken
+trust store should fail fast (an SSL verify error is not transient, so
+retrying it is wasted time) instead of burning the tick. Ask (in addition to the
+trust-store repair above): have `core/` HTTP helpers skip retries on
+`ssl.SSLCertVerificationError`, or have loop.sh preflight one HTTPS fetch
+and demote to a LIGHT/log-only tick when it fails.
