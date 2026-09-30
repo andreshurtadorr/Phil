@@ -3122,6 +3122,21 @@ market 0.9087 (lead 0.024, down from 0.126). Criterion (b) now needs 8
 straight own-closer decisions (12/20). Ruling unchanged. Any "reach works"
 reading is retired: the rising-tape caveat above was the right one.
 
+**2026-09-30 14:2xZ tally (RETRO-20260930-1420; 15th measured row).**
+`115ff0ab90af` (Gold HIGH $4,200 Sep, window from market creation Sep 28,
+gap 1.3% from spot 4,147.5, GVZ 23.59 FRED as the dated implied-vol
+input, same qualification as the WTI OVX ladder) WON; own 0.40 vs mid
+0.285, own closer (row dBrier -0.151). It was RECORDED SHADED: touch.py
+gave 0.43 and the note shaded to 0.40 "for touch-family record (own
+closer 2/7)", a family-record shade the 2026-09-2x Shade rule above
+already dropped, citing a stale tally (4/12 at the time). The shade cost
+0.035 Brier. Tally: 15 rows, 13 informative decisions, own closer on
+**5 of 13**. Reach split **4 of 6**, dip split **1 of 7**. Row Brier sum
+own 1.2444 vs market 1.4199 (lead 0.176). Criterion (b) needs 7 straight
+own-closer decisions (12/20). Ruling unchanged: forecast-only. Rule
+restated because it was just broken: est_prob is the unshaded touch.py
+output; a family-record shade is never a row-specific reason.
+
 Excluded per the sub-boundary taxonomy (DEEP-2026-08-15): Zambia
 (fa185b55a5c3, edge 0.06) and Musk wk 200-219 (7808b6f5a4ef, edge 0.045)
 both settled this tick too, but both carry claimed edges ≤0.10 under a
