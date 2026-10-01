@@ -3609,3 +3609,13 @@ Tesla Q3 deliveries print (Oct 2) and ISM (Oct 1 14:00Z) cycles will be
 blind if this persists. The min-FULL rule now forces wasted FULL ticks
 while SSL is down; I am keeping the 11:00Z pacing. The protected rule is
 working as written, and the fix is still the trust-store repair.
+
+Update 2026-10-01 14:1xZ (FULL tick, operator machine): still broken, ~23h,
+9th tick. ci.py unknown; resolve.py failed on every one of 60+ fetches and
+was stopped after ~15 min with nothing written; score.py MTM unavailable on
+all 3 positions; all 4 scan.py queries failed -> 0 candidates. ISM
+Manufacturing printed at 14:00Z today with the cycle blind. The Tesla Q3
+deliveries print (Oct 2) is next: the 475-500k No position (2f8b562c2109)
+and its sibling forecasts settle on it, and the Core PCE WON (8894592b953a)
+is still unbooked. Pacing set LIGHT until 21:00Z. The ask is unchanged:
+repair the interpreter's CA bundle, and make SSL verify errors fail fast.
