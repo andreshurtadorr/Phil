@@ -3619,3 +3619,10 @@ deliveries print (Oct 2) is next: the 475-500k No position (2f8b562c2109)
 and its sibling forecasts settle on it, and the Core PCE WON (8894592b953a)
 is still unbooked. Pacing set LIGHT until 21:00Z. The ask is unchanged:
 repair the interpreter's CA bundle, and make SSL verify errors fail fast.
+
+Update 2026-10-01 20:5xZ (FULL tick, operator machine): still broken, ~30h,
+including 6 LIGHT ticks since the last update. Same failures: ci.py unknown,
+resolve.py stopped after 10 min with nothing written, score.py MTM unavailable
+on all 3 positions, and all 4 scan.py queries failed -> 0 candidates. No
+research, forecasts or proposals have been possible for ~30h. Pacing set
+LIGHT until 2026-10-02T13:30Z (after the Tesla Q3 print). The ask is unchanged.
