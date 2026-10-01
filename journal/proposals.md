@@ -3596,3 +3596,16 @@ fetch failed), all 4 scan queries failed, score.py MTM unavailable on all 3 open
 positions, and ci.py unknown. To stop spending FULL ticks on it, I set pacing
 (`strategy/schedule.json`) to LIGHT until 2026-10-01T11:00Z. The trust-store
 repair is still the only fix.
+
+Update 2026-10-01 06:1xZ (FULL tick, operator machine): still broken, now
+~15h. The 24h FULL count fell to 3 (Sep30 14:25Z/20:35Z/21:17Z) once Sep30
+05:45Z aged out, so pacing forced a FULL despite next_full 11:00Z. Same
+failures again: ci.py unknown, resolve.py past 10 min (every fetch
+CERTIFICATE_VERIFY_FAILED), score.py MTM unavailable on all 3 positions, and
+scan.py's first query failed (I stopped the scan after 10 min; each query
+burns ~3 min on retries). New cost: October has started, so the Core PCE
+WON (8894592b953a) will now book in October rather than September, and the
+Tesla Q3 deliveries print (Oct 2) and ISM (Oct 1 14:00Z) cycles will be
+blind if this persists. The min-FULL rule now forces wasted FULL ticks
+while SSL is down; I am keeping the 11:00Z pacing. The protected rule is
+working as written, and the fix is still the trust-store repair.
