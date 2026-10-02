@@ -3644,3 +3644,12 @@ settled or graded until gamma is reachable. Two days of FULL cycles have
 produced zero research. Ask unchanged: repair the Python CA bundle on the
 operator machine (e.g. run "Install Certificates.command" for the python.org
 build, or point SSL_CERT_FILE at certifi in loop.sh).
+
+Update 2026-10-02 14:4xZ (FULL tick, operator machine): still broken, ~47h.
+Same signature on ci.py, resolve.py (stopped after ~2 min, nothing written),
+score.py (MTM unavailable x3) and scan.py (first query failed, stopped).
+New cost: a thesis event landed on the held Sweden PM No (e746d7e1ba99):
+Andersson has a new assignment that ends in a PM vote no earlier than Oct 14,
+and forecast.py cannot record the re-forecast because it needs a live book.
+If the trust store is not fixed before Oct 14, that position is graded on a
+stale forecast. Ask unchanged.
