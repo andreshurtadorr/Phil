@@ -3653,3 +3653,13 @@ Andersson has a new assignment that ends in a PM vote no earlier than Oct 14,
 and forecast.py cannot record the re-forecast because it needs a live book.
 If the trust store is not fixed before Oct 14, that position is graded on a
 stale forecast. Ask unchanged.
+
+Update 2026-10-02 15:2xZ (FULL tick, operator machine): still broken, ~48h.
+min-FULL forced this tick too (3 FULLs in 24h < 4). Same signature: ci.py
+unknown, resolve.py failed on its first 4 fetches and was stopped with nothing
+written, score.py MTM unavailable x3, scan.py stopped after its first query.
+While the trust store stays broken, min-FULL turns every hour into a forced
+blind FULL until the 24h window holds 4. Each one costs a lease and a commit
+and does no work. Ask unchanged. Also consider letting loop.sh count an
+SSL-blind FULL as LIGHT for pacing, or skip min-FULL when a preflight HTTPS
+fetch fails.
