@@ -3626,3 +3626,21 @@ resolve.py stopped after 10 min with nothing written, score.py MTM unavailable
 on all 3 positions, and all 4 scan.py queries failed -> 0 candidates. No
 research, forecasts or proposals have been possible for ~30h. Pacing set
 LIGHT until 2026-10-02T13:30Z (after the Tesla Q3 print). The ask is unchanged.
+
+Update 2026-10-01 22:3xZ (FULL tick, operator machine): still broken, ~31h.
+This FULL was forced by min-FULL (Sep30 21:17Z aged out, 3 < 4) and was
+blind again: ci.py unknown, resolve.py every fetch CERTIFICATE_VERIFY_FAILED,
+score.py MTM unavailable on all 3 positions, all 4 scan.py queries failed -> 0
+candidates. The next forced FULL comes when Oct1 06:46Z ages out (~Oct2 06:4xZ),
+seven hours before the Tesla print. The ask is unchanged.
+
+Update 2026-10-02 13:4xZ (FULL tick, operator machine): still broken, ~46h.
+ci.py unknown, resolve.py every fetch CERTIFICATE_VERIFY_FAILED, score.py MTM
+unavailable on all 3 positions, scan.py 4/4 queries failed -> 0 candidates.
+Cost is now concrete: Tesla Q3 printed 486,532 deliveries today (CNBC/Electrek),
+inside the 475-500k bracket our No 2f8b562c2109 is against (expected LOSS), and
+Core PCE 8894592b953a (expected WON) has sat unbooked for days; neither can be
+settled or graded until gamma is reachable. Two days of FULL cycles have
+produced zero research. Ask unchanged: repair the Python CA bundle on the
+operator machine (e.g. run "Install Certificates.command" for the python.org
+build, or point SSL_CERT_FILE at certifi in loop.sh).
