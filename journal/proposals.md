@@ -3663,3 +3663,12 @@ blind FULL until the 24h window holds 4. Each one costs a lease and a commit
 and does no work. Ask unchanged. Also consider letting loop.sh count an
 SSL-blind FULL as LIGHT for pacing, or skip min-FULL when a preflight HTTPS
 fetch fails.
+
+Update 2026-10-03 18:1xZ (FULL tick, operator machine): still broken, ~75h
+(day 4). Same signature: ci.py unknown, resolve.py failed on its first 19
+fetches and was stopped with nothing written, score.py MTM unavailable x3,
+and all 4 scan.py queries failed -> 0 candidates. Three settlements are now
+stuck behind it: Core PCE 8894592b953a (expected WON), Tesla 2f8b562c2109
+(expected LOSS), and Sweden PM e746d7e1ba99, whose owed re-forecast has to
+land before the PM vote (no earlier than Oct 14). Ask unchanged: repair the
+Python CA bundle for the interpreter loop.sh uses.
