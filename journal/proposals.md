@@ -3679,3 +3679,10 @@ Same signature: ci.py unknown, resolve.py failed its first 12 fetches and was
 stopped with nothing written, score.py MTM unavailable x3, scan.py 4/4
 queries failed -> 0 candidates. Ask unchanged. The pacing ask from the
 2026-10-02 15:2xZ update still stands.
+
+Update 2026-10-03 19:4xZ (FULL tick, operator machine): still broken, ~77h.
+min-FULL forced it again (3 FULLs in 24h < 4), the third blind FULL in ~95
+minutes. Same signature: ci.py unknown, resolve.py failed its first 12
+fetches (backgrounded, nothing written), score.py MTM unavailable x3,
+scan.py 4/4 queries failed -> 0 candidates. Each of these FULLs costs a
+whole Opus session and produces nothing. Ask unchanged.
