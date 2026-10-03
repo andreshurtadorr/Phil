@@ -3672,3 +3672,10 @@ stuck behind it: Core PCE 8894592b953a (expected WON), Tesla 2f8b562c2109
 (expected LOSS), and Sweden PM e746d7e1ba99, whose owed re-forecast has to
 land before the PM vote (no earlier than Oct 14). Ask unchanged: repair the
 Python CA bundle for the interpreter loop.sh uses.
+
+Update 2026-10-03 18:5xZ (FULL tick, operator machine): still broken, ~76h.
+min-FULL forced it (2 FULLs in 24h < 4), ~45 min after the last blind FULL.
+Same signature: ci.py unknown, resolve.py failed its first 12 fetches and was
+stopped with nothing written, score.py MTM unavailable x3, scan.py 4/4
+queries failed -> 0 candidates. Ask unchanged. The pacing ask from the
+2026-10-02 15:2xZ update still stands.
