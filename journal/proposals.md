@@ -3686,3 +3686,11 @@ minutes. Same signature: ci.py unknown, resolve.py failed its first 12
 fetches (backgrounded, nothing written), score.py MTM unavailable x3,
 scan.py 4/4 queries failed -> 0 candidates. Each of these FULLs costs a
 whole Opus session and produces nothing. Ask unchanged.
+
+Update 2026-10-04 04:1xZ (FULL tick, operator machine): still broken, ~85h
+(day 5). The pacing window expired at 23:00Z, so this tick ran FULL. Same
+signature: ci.py unknown, resolve.py failed its first 3 fetches and was
+stopped with nothing written, score.py MTM unavailable x3, scan.py's first
+query failed and the scan was stopped. Ten days remain before the Sweden PM
+vote (no earlier than Oct 14), and the owed re-forecast on e746d7e1ba99 still
+can't be recorded. Pacing set LIGHT until 14:00Z. Ask unchanged.
