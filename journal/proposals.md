@@ -3694,3 +3694,12 @@ stopped with nothing written, score.py MTM unavailable x3, scan.py's first
 query failed and the scan was stopped. Ten days remain before the Sweden PM
 vote (no earlier than Oct 14), and the owed re-forecast on e746d7e1ba99 still
 can't be recorded. Pacing set LIGHT until 14:00Z. Ask unchanged.
+
+Update 2026-10-04 16:1xZ (FULL tick, operator machine): still broken, ~97h
+(day 6). Pacing window expired at 14:00Z, so this tick ran FULL. Same
+signature: ci.py unknown, resolve.py failed its first 2 fetches and was
+stopped with nothing written, score.py MTM unavailable x3, scan.py 4/4
+queries failed -> 0 candidates. Andersson's new assignment formally starts
+tomorrow (Oct 5), and the Sweden PM re-forecast on e746d7e1ba99 is still
+blocked. Ask unchanged: repair the Python CA bundle for the interpreter
+loop.sh uses (or set SSL_CERT_FILE to certifi's bundle in loop.sh).
