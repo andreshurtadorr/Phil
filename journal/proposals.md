@@ -3703,3 +3703,11 @@ queries failed -> 0 candidates. Andersson's new assignment formally starts
 tomorrow (Oct 5), and the Sweden PM re-forecast on e746d7e1ba99 is still
 blocked. Ask unchanged: repair the Python CA bundle for the interpreter
 loop.sh uses (or set SSL_CERT_FILE to certifi's bundle in loop.sh).
+
+Update 2026-10-04 23:0xZ (FULL tick, operator machine): still broken, ~104h.
+min-FULL forced it (2 FULLs in 24h < 4) despite next_full 2026-10-05T04:00Z.
+Same signature: ci.py unknown, resolve.py failed its first 6 fetches and was
+stopped with nothing written, score.py MTM unavailable x3, scan.py's first 2
+queries failed and the scan was stopped. Andersson's assignment starts today
+(Oct 5 CEST), so the Sweden PM re-forecast on e746d7e1ba99 now has under
+10 days before the PM vote. Ask unchanged.
