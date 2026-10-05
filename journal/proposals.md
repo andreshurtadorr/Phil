@@ -3720,3 +3720,10 @@ Andersson assignment is live from today; the Sweden PM re-forecast on
 e746d7e1ba99 is blocked with ~9 days to the PM vote, and Core PCE / Tesla
 cannot settle. Ask unchanged: repair the CA bundle for the loop.sh
 interpreter (or SSL_CERT_FILE=certifi bundle in loop.sh).
+
+Update 2026-10-05 14:5xZ (FULL tick, operator machine): still broken, ~119h.
+min-FULL forced it (3 FULLs in 24h < 4), about 2h after the last blind FULL.
+Same signature: ci.py unknown, resolve.py failed its first 9 fetches and was
+stopped with nothing written, score.py MTM unavailable x3, scan.py 4/4
+queries failed -> 0 candidates. Ask unchanged, and the 2026-10-02 15:2xZ
+pacing ask (skip min-FULL when a preflight HTTPS fetch fails) still stands.
