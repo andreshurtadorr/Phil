@@ -3711,3 +3711,12 @@ stopped with nothing written, score.py MTM unavailable x3, scan.py's first 2
 queries failed and the scan was stopped. Andersson's assignment starts today
 (Oct 5 CEST), so the Sweden PM re-forecast on e746d7e1ba99 now has under
 10 days before the PM vote. Ask unchanged.
+
+Update 2026-10-05 12:4xZ (FULL tick, operator machine): still broken, ~117h.
+next_full 04:00Z expired -> FULL. Same signature: ci.py unknown, resolve.py
+failed its first 4 fetches and was stopped with nothing written, score.py MTM
+unavailable x3, scan.py first query failed and the scan was stopped. The
+Andersson assignment is live from today; the Sweden PM re-forecast on
+e746d7e1ba99 is blocked with ~9 days to the PM vote, and Core PCE / Tesla
+cannot settle. Ask unchanged: repair the CA bundle for the loop.sh
+interpreter (or SSL_CERT_FILE=certifi bundle in loop.sh).
