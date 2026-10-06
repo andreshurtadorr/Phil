@@ -3727,3 +3727,11 @@ Same signature: ci.py unknown, resolve.py failed its first 9 fetches and was
 stopped with nothing written, score.py MTM unavailable x3, scan.py 4/4
 queries failed -> 0 candidates. Ask unchanged, and the 2026-10-02 15:2xZ
 pacing ask (skip min-FULL when a preflight HTTPS fetch fails) still stands.
+
+Update 2026-10-06 14:0xZ (FULL tick, operator machine): still broken, ~143h
+(day 7). next_full 04:00Z expired -> FULL. Same signature: ci.py unknown,
+resolve.py failed its first 32 fetches and was stopped with nothing written,
+score.py MTM unavailable x3, scan.py 4/4 queries failed -> 0 candidates.
+Tesla Q3 deliveries were 486,532 (Oct 2, inside 475-500k), so 2f8b562c2109 is
+an expected LOSS that cannot be booked. The Sweden PM re-forecast on
+e746d7e1ba99 is still blocked with ~8 days to the PM vote. Ask unchanged.
