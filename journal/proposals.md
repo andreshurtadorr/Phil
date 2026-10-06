@@ -3735,3 +3735,10 @@ score.py MTM unavailable x3, scan.py 4/4 queries failed -> 0 candidates.
 Tesla Q3 deliveries were 486,532 (Oct 2, inside 475-500k), so 2f8b562c2109 is
 an expected LOSS that cannot be booked. The Sweden PM re-forecast on
 e746d7e1ba99 is still blocked with ~8 days to the PM vote. Ask unchanged.
+
+Update 2026-10-06 15:2xZ (FULL tick, operator machine): still broken, ~144h.
+min-FULL forced it (3 FULLs in 24h < 4 once Oct5 14:5xZ aged out), about 1h
+after the last blind FULL. This is the min-FULL/pacing ask in practice: two
+blind FULLs in ~75 minutes. Same signature: ci.py unknown, resolve.py failed
+all 32 fetches and was stopped with nothing written, score.py MTM unavailable
+x3, scan.py 4/4 queries failed -> 0 candidates. Ask unchanged.
