@@ -3742,3 +3742,11 @@ after the last blind FULL. This is the min-FULL/pacing ask in practice: two
 blind FULLs in ~75 minutes. Same signature: ci.py unknown, resolve.py failed
 all 32 fetches and was stopped with nothing written, score.py MTM unavailable
 x3, scan.py 4/4 queries failed -> 0 candidates. Ask unchanged.
+
+Update 2026-10-07 11:4xZ (FULL tick, operator machine): still broken, ~165h
+(day 8). next_full 2026-10-06T22:00Z expired and only 3 FULLs in 24h -> FULL.
+Same signature: ci.py unknown, resolve.py failed its first 2 fetches and was
+stopped with nothing written, score.py ran but MTM unavailable x3, scan.py
+first 2 queries failed and the scan was stopped. The Sweden PM re-forecast on
+e746d7e1ba99 is now blocked with ~7 days to the PM vote (report-back Oct 12).
+The paper book has been blind for over a week with $15 open. Ask unchanged.
