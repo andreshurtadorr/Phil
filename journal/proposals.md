@@ -3750,3 +3750,11 @@ stopped with nothing written, score.py ran but MTM unavailable x3, scan.py
 first 2 queries failed and the scan was stopped. The Sweden PM re-forecast on
 e746d7e1ba99 is now blocked with ~7 days to the PM vote (report-back Oct 12).
 The paper book has been blind for over a week with $15 open. Ask unchanged.
+
+Update 2026-10-09 14:1xZ (FULL tick, operator machine): still broken, ~215h
+(day 10). Same signature: ci.py unknown, resolve.py failed its first 32
+fetches and was stopped with nothing written, scan.py liquid-multiday failed
+SSL and the scan was stopped -> 0 candidates. The Sweden report-back is Oct 12
+and the PM vote is >= Oct 14. If the store is not fixed by then,
+e746d7e1ba99 settles with no current forecast on record, and the last one
+(f0fe41b7c0d7, 0.70) is stale against my ~0.74 read from Oct 2. Ask unchanged.
