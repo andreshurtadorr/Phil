@@ -3758,3 +3758,17 @@ SSL and the scan was stopped -> 0 candidates. The Sweden report-back is Oct 12
 and the PM vote is >= Oct 14. If the store is not fixed by then,
 e746d7e1ba99 settles with no current forecast on record, and the last one
 (f0fe41b7c0d7, 0.70) is stale against my ~0.74 read from Oct 2. Ask unchanged.
+
+Update 2026-10-13 15:4xZ (FULL tick, operator machine): still broken, ~312h
+(day 14). min-FULL forced it (3 FULLs logged in 24h < 4), about 90 minutes
+after the last blind FULL. Same signature: ci.py unknown, resolve.py failing
+every fetch, scan.py 4/4 queries failed -> 0 candidates. Two runs (Oct12
+21:2xZ, Oct13 14:5xZ) also died mid-cycle after editing strategy/schedule.json
+and before logging or committing, so the working tree was dirty at the start
+of the next tick both times. The Riksdag votes on Andersson Thu Oct 15 10:00Z
+(expected to fail: V, MP, L No, C undecided); my read moved 0.70 -> 0.74 ->
+0.70 -> 0.62 across four thesis events with none of it recordable, so
+e746d7e1ba99's forecast stream has a 15-day hole where the information
+arrived. Ask unchanged: repair the CA bundle for the loop.sh interpreter (or
+SSL_CERT_FILE=certifi bundle in loop.sh), and skip min-FULL when a preflight
+HTTPS fetch fails.
